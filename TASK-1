@@ -1,0 +1,21 @@
+def classify_performance(avg):
+    if avg < 40:
+        return 0   # Fail
+    elif avg <= 59:
+        return 1   # Average
+    elif avg <= 79:
+        return 2   # Good
+    else:
+        return 3   # Excellent
+categories = {
+    0: "Fail",
+    1: "Average",
+    2: "Good",
+    3: "Excellent
+}
+n = int(input())
+for _ in range(n):
+    student, marks = input().split()
+    marks = int(marks)
+    code = classify_performance(marks)
+    print(f"Student {student} is classified as {categories[code]} based on performance.")
