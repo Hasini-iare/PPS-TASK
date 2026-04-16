@@ -1,0 +1,22 @@
+def calculate_risk_score(temp, humidity, rainfall):
+    temp_score = (temp / 50) * 100
+    humidity_score = humidity
+    rainfall_score = (rainfall / 50) * 100
+
+    risk_score = (0.2 * temp_score) + (0.5 * humidity_score) + (0.3 * rainfall_score)
+
+    return risk_score
+
+def classify_risk(score):
+    if score < 40:
+        return "Low Risk"
+    elif score < 55:
+        return "Medium Risk"
+    else:
+        return "High Risk"
+
+temp, humidity, rainfall = map(float, input().split())
+risk_score = calculate_risk_score(temp, humidity, rainfall)
+risk_level = classify_risk(risk_score)
+print(risk_level)
+
